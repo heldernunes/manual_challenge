@@ -26,15 +26,6 @@ class AnswerModel
      */
     private ?int $followUpQuestionId;
 
-//    /**
-//     * @var string|null
-//     */
-//    private ?string $questionAnswerRestrictionId;
-//
-//    /**
-//     * @var string|null
-//     */
-//    private ?string $productDosageId;
 
     /**
      * @param array $values
@@ -45,8 +36,6 @@ class AnswerModel
         $this->answer = $values['text'] ?? null;
         $this->questionId = $values['questionId'] ?? null;
         $this->followUpQuestionId = $values['followUpQuestionId'] ?? null;
-//        $this->questionAnswerRestrictionId = $values['questionAnswerRestrictionId'] ?? null;
-//        $this->productDosageId = $values['productDosageId'] ?? null;
     }
 
     /**
@@ -65,5 +54,20 @@ class AnswerModel
     public function setId(?int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getAnswer(): ?string
+    {
+        return $this->answer;
+    }
+
+    public function getQuestionId(): ?int
+    {
+        return $this->questionId;
+    }
+
+    public function getFollowUpQuestionId(): ?int
+    {
+        return $this->followUpQuestionId;
     }
 }

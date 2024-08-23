@@ -37,7 +37,7 @@ final class Version20240820105801 extends AbstractMigration
         // Create the product_dosage table
         $this->addSql('CREATE TABLE product_dosage (
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-            product_id VARCHAR(255) DEFAULT NULL,  
+            product_id INTEGER DEFAULT NULL,  
             dosage VARCHAR(255) DEFAULT NULL,
             description CLOB DEFAULT NULL,
             price DECIMAL(10, 2) NOT NULL,
@@ -71,11 +71,18 @@ final class Version20240820105801 extends AbstractMigration
             text VARCHAR(255) NOT NULL, 
             follow_up_question_id INTEGER DEFAULT NULL, 
             question_answer_restriction_id INTEGER DEFAULT NULL,
-            product_dosage_id INTEGER DEFAULT NULL,
             CONSTRAINT FK_QUESTION FOREIGN KEY (question_id) REFERENCES question (id) ON DELETE CASCADE,
             CONSTRAINT FK_FOLLOW_UP_QUESTION FOREIGN KEY (follow_up_question_id) REFERENCES question (id) ON DELETE CASCADE,
-            CONSTRAINT FK_QUESTION_ANWSER_RESTRICTION FOREIGN KEY (question_answer_restriction_id) REFERENCES question_answer_restriction (id) ON DELETE CASCADE,
-            CONSTRAINT FK_PRODUCT_DOSAGE FOREIGN KEY (product_dosage_id) REFERENCES product_dosage (id) ON DELETE CASCADE
+            CONSTRAINT FK_QUESTION_ANWSER_RESTRICTION FOREIGN KEY (question_answer_restriction_id) REFERENCES question_answer_restriction (id) ON DELETE CASCADE
+        )');
+
+        // Create the product_dosage table
+        $this->addSql('CREATE TABLE answer_to_product_dosage (
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            answer_id INTEGER DEFAULT NULL,  
+            product_dosage_id INTEGER DEFAULT NULL,
+            CONSTRAINT FK_ANSWER FOREIGN KEY (answer_id) REFERENCES answer (id) ON DELETE CASCADE,
+            CONSTRAINT FK_PRODUCT FOREIGN KEY (product_dosage_id) REFERENCES product_dosage (id) ON DELETE CASCADE
         )');
 
         // Create the question_answer_restriction table

@@ -26,8 +26,8 @@ final class Version20240820110911 extends AbstractMigration
         // Insert initial data into the product_dosage table
         $this->addSql("INSERT INTO product_dosage (product_id,dosage, description, price) VALUES (1, '50mg', 'Sildenafil 50mg tablets', 10.00)");
         $this->addSql("INSERT INTO product_dosage (product_id, dosage, description, price) VALUES (1, '100mg', 'Sildenafil 100mg tablets', 15.00)");
-        $this->addSql("INSERT INTO product_dosage (product_id, dosage, description, price) VALUES (1, '10mg', 'Tadalafil 10mg tablets', 20.00)");
-        $this->addSql("INSERT INTO product_dosage (product_id, dosage, description, price) VALUES (1, '20mg', 'Tadalafil 20mg tablets', 25.00)");
+        $this->addSql("INSERT INTO product_dosage (product_id, dosage, description, price) VALUES (2, '10mg', 'Tadalafil 10mg tablets', 20.00)");
+        $this->addSql("INSERT INTO product_dosage (product_id, dosage, description, price) VALUES (2, '20mg', 'Tadalafil 20mg tablets', 25.00)");
 
         // Insert initial data into the questionnaire table
         $this->addSql("INSERT INTO questionnaire (name, description) VALUES ('Erectile Dysfunction Questionnaire', 'Questionnaire to assess ED treatments')");
@@ -48,16 +48,14 @@ final class Version20240820110911 extends AbstractMigration
         $this->addSql("INSERT INTO answer (question_id, text, follow_up_question_id) VALUES (2, 'Viagra or Sildenafil', 3)");
         $this->addSql("INSERT INTO answer (question_id, text, follow_up_question_id) VALUES (2, 'Cialis or Tadalafil', 4)");
         $this->addSql("INSERT INTO answer (question_id, text, follow_up_question_id) VALUES (2, 'Both', 5)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (2, 'None of the above', 1)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (2, 'None of the above', 3)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (3, 'Yes', 1)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (3, 'No', 4)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (4, 'Yes', 3)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (4, 'No', 2)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (5, 'Viagra or Sildenafil', 2)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (5, 'Cialis or Tadalafil', 3)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (5, 'None of the above', 2)");
-        $this->addSql("INSERT INTO answer (question_id, text, product_dosage_id) VALUES (5, 'None of the above', 4)");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (2, 'None of the above')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (3, 'Yes')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (3, 'No')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (4, 'Yes')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (4, 'No')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (5, 'Viagra or Sildenafil')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (5, 'Cialis or Tadalafil')");
+        $this->addSql("INSERT INTO answer (question_id, text) VALUES (5, 'None of the above')");
         $this->addSql("INSERT INTO answer (question_id, text) VALUES (6, 'Yes')");
         $this->addSql("INSERT INTO answer (question_id, text, question_answer_restriction_id) VALUES (6, 'No', 1)");
         $this->addSql("INSERT INTO answer (question_id, text, question_answer_restriction_id) VALUES (7, 'Significant liver problems (such as cirrhosis of the liver) or kidney problems', 1)");
@@ -71,10 +69,37 @@ final class Version20240820110911 extends AbstractMigration
         $this->addSql("INSERT INTO answer (question_id, text, question_answer_restriction_id) VALUES (8, 'Cimetidine (for heartburn)', 1)");
         $this->addSql("INSERT INTO answer (question_id, text) VALUES (8, 'I don''t take any of these drugs')");
 
+        // Insert initial data into the product_dosage table
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (6, 1)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (6, 3)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (7, 1)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (8, 4)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (9, 3)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (10, 2)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (11, 2)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (12, 4)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (13, 2)");
+        $this->addSql("INSERT INTO answer_to_product_dosage (answer_id,product_dosage_id) VALUES (13, 4)");
+
         // Insert initial data into the question_answer_restriction table
         $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (2, 'exclude_all', 'No products available')");
-        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (2, 'exclude_tadalafil', 'Exclude Tadalafil')");
-        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (2, 'exclude_sildenafil', 'Exclude Sildenafil')");
+
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (7, 'exclude_tadalafil', 'Exclude Tadalafil')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (8, 'exclude_sildenafil', 'Exclude Sildenafil')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (9, 'exclude_sildenafil', 'Exclude Sildenafil')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (10, 'exclude_tadalafil', 'Exclude Tadalafil')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (11, 'exclude_tadalafil', 'Exclude Tadalafil')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (12, 'exclude_sildenafil', 'Exclude Sildenafil')");
+
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (15, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (16, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (17, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (18, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (19, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (21, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (22, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (23, 'exclude_all', 'No products available')");
+        $this->addSql("INSERT INTO question_answer_restriction (answer_id, exclusion_type, exclusion_details) VALUES (24, 'exclude_all', 'No products available')");
     }
 
     public function down(Schema $schema): void

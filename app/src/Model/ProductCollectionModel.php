@@ -4,17 +4,17 @@ namespace App\Model;
 
 use ArrayIterator;
 
-class QuestionCollectionModel extends ArrayIterator
+class ProductCollectionModel extends ArrayIterator
 {
     /**
-     * @param array $questions
+     * @param array $products
      */
-    public function __construct(array $questions)
+    public function __construct(array $products)
     {
         parent::__construct();
 
-        foreach ($questions as $question) {
-            $this->append(new QuestionModel($question->toArray()));
+        foreach ($products as $product) {
+            $this->append(new ProductModel($product));
         }
     }
 

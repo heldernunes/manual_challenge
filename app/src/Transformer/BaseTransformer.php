@@ -3,6 +3,7 @@
 namespace App\Transformer;
 
 use App\Model\Response\BaseResponseModel;
+use App\Model\Response\ErrorResponseModel;
 use App\Model\Response\ResponseModelInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,11 +28,17 @@ class BaseTransformer implements TransformerInterface
         return $this->contentType;
     }
 
-    public function apply(ResponseModelInterface $model): JsonResponse
+    /**
+     * @param \App\Model\Response\ResponseModelInterface $model
+     * @param bool $success
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function apply(ResponseModelInterface $model, bool $success): JsonResponse
     {
         $baseResponseModel = new BaseResponseModel();
         $baseResponseModel->setData($model->toArray());
-        $baseResponseModel->setSuccess(true);
+        $baseResponseModel->setSuccess($success);
         $response = new JsonResponse($baseResponseModel->toArray(), $this->getStatusCode($model));
         $response->headers->add(['Content-Type' => $this->getContentType()]);
 

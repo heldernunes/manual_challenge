@@ -12,5 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
  */
 interface TransformerInterface
 {
-    public function apply(ResponseModelInterface $model);
+    /**
+     * @param \App\Model\Response\ResponseModelInterface $model
+     * @param bool $success
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function apply(ResponseModelInterface $model, bool $success): JsonResponse;
 }

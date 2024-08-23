@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Request;
 
 use ArrayIterator;
 
-class QuestionCollectionModel extends ArrayIterator
+class QuestionnaireResponseCollectionModel extends ArrayIterator
 {
     /**
-     * @param array $questions
+     * @param array $responses
      */
-    public function __construct(array $questions)
+    public function __construct(array $responses)
     {
         parent::__construct();
 
-        foreach ($questions as $question) {
-            $this->append(new QuestionModel($question->toArray()));
+        foreach ($responses as $response) {
+            $this->append(new QuestionnaireResponseModel($response));
         }
     }
 

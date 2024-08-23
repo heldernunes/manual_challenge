@@ -6,11 +6,11 @@ use ArrayIterator;
 
 class AnswerCollectionModel extends ArrayIterator
 {
-    public function __construct(array $answers)
+    public function __construct(array $questions)
     {
         parent::__construct();
 
-        foreach ($answers as $answer) {
+        foreach ($questions as $answer) {
             $this->append($answer);
         }
     }

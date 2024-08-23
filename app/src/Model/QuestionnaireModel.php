@@ -9,17 +9,17 @@ class QuestionnaireModel
     /**
      * @var int|null
      */
-    private ?int $id = null;
+    private ?int $id;
 
     /**
      * @var string|null
      */
-    private ?string $name = null;
+    private ?string $name;
 
     /**
      * @var string|null
      */
-    private ?string $description = null;
+    private ?string $description;
 
     /**
      * @param array $values

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Tests\Unit\Middleware;
+namespace App\Tests\Unit\MiddleWare;
 
 use App\Exceptions\InvalidArgumentsException;
 use App\Middleware\GetQuestionnaireParamConverter;
 use App\Middleware\Middleware;
 use App\Model\Request\RequestCollectionModel;
 use App\Service\ValidatorService;
+use App\Tests\Helper\DummyRequestModel;
 use App\Tests\Helper\ReflectionHelper;
-use App\Tests\Unit\Middleware\TestObject\DummyRequestModel;
 use PHPUnit\Framework\TestCase;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

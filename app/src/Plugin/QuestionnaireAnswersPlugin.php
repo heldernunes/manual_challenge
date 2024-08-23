@@ -4,10 +4,8 @@ namespace App\Plugin;
 
 use App\Model\AnswerCollectionModel;
 use App\Model\AnswerModel;
-use App\Model\QuestionCollectionModel;
 use App\Model\Response\QuestionnaireResponseModel;
 use App\Repository\AnswerRepository;
-use App\Repository\QuestionRepository;
 
 class QuestionnaireAnswersPlugin implements QuestionnairePluginInterface
 {

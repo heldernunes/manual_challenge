@@ -56,6 +56,6 @@ class QuestionnaireService
         foreach ($this->pluginStack as $plugin) {
             $plugin->apply($questionnaireResponseModel);
         }
-        return $this->transformer->apply($questionnaireResponseModel);
+        return $this->transformer->apply($questionnaireResponseModel, true);
     }
 }

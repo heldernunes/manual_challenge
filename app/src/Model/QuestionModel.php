@@ -11,22 +11,22 @@ class QuestionModel
     /**
      * @var int|null
      */
-    private ?int $id = null;
+    private ?int $id;
 
     /**
      * @var string|null
      */
-    private ?string $question = null;
+    private ?string $question;
 
     /**
      * @var int|null
      */
-    private ?int $orderNumber = null;
+    private ?int $orderNumber;
 
     /**
      * @var int|null
      */
-    private ?int $parentQuestionId = null;
+    private ?int $parentQuestionId;
 
     /**
      * @var \ArrayIterator<\App\Model\AnswerModel>|null
@@ -108,13 +108,11 @@ class QuestionModel
         $this->parentQuestionId = $parentQuestionId;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAnswers(): ?string
+    public function getAnswers(): ?ArrayIterator
     {
         return $this->answers;
     }
+
 
     /**
      * @param \App\Model\AnswerCollectionModel|null $answers

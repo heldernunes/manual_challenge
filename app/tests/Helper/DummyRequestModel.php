@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Tests\Unit\Middleware\TestObject;
+namespace App\Tests\Helper;
 
 use App\Model\Request\RequestModelInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class DummyRequestModel implements RequestModelInterface
 {

@@ -2,6 +2,7 @@
 
 namespace App\Tests\Integration;
 
+use App\Tests\Helper\DatabaseHelper;
 use Doctrine\DBAL\DriverManager;
 use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -22,17 +23,7 @@ class GetQuestionnaireTest extends KernelTestCase
         parent::setUp();
 
         self::bootKernel();
-        $dbConfig = [
-            'use_savepoints' => true,
-            'driver' => 'pdo_sqlite',
-            'host' => 'localhost',
-            'port' => null,
-            'user' => 'root',
-            'password' => null,
-            'driverOptions' => [],
-            'defaultTableOptions' => [],
-            'path' => '/var/www/html/var/data.db',
-        ];
+        $dbConfig = DatabaseHelper::getDBConfig();
         $this->dbConnection = DriverManager::getConnection($dbConfig);
 
         $this->connection = new Client([
@@ -67,9 +58,6 @@ class GetQuestionnaireTest extends KernelTestCase
         $this->dbConnection->close();
     }
 
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function testGetQuestionnaire()
     {
         $response = $this->connection->get('/questionnaire/' . $this->questionnaire[0]['id']);

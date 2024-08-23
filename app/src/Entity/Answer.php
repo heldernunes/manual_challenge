@@ -28,12 +28,16 @@ class Answer
     #[ORM\Column(nullable: true)]
     private ?int $questionAnswerRestrictionId = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $productDosageId = null;
-
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(?int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getQuestionId(): ?int
@@ -80,18 +84,6 @@ class Answer
     public function setQuestionAnswerRestrictionId(?int $questionAnswerRestrictionId): static
     {
         $this->questionAnswerRestrictionId = $questionAnswerRestrictionId;
-
-        return $this;
-    }
-
-    public function getProductDosageId(): ?int
-    {
-        return $this->productDosageId;
-    }
-
-    public function setProductDosageId(?int $productDosageId): static
-    {
-        $this->productDosageId = $productDosageId;
 
         return $this;
     }

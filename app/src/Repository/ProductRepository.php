@@ -5,11 +5,12 @@ namespace App\Repository;
 use App\Entity\Category;
 use App\Entity\Product;
 use App\Entity\ProductDosage;
-use App\Entity\QuestionAnswerRestriction;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @extends ServiceEntityRepository<Product>
  *
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)

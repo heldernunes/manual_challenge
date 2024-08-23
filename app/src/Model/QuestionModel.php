@@ -4,6 +4,9 @@ namespace App\Model;
 
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionModel
 {
     use ArrayConversion;

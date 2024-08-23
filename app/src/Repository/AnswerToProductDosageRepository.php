@@ -8,6 +8,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @extends ServiceEntityRepository<AnswerToProductDosage>
  *
  * @method AnswerToProductDosage|null find($id, $lockMode = null, $lockVersion = null)

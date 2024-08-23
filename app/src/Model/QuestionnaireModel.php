@@ -2,6 +2,9 @@
 
 namespace App\Model;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionnaireModel
 {
     use ArrayConversion;

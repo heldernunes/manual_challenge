@@ -4,6 +4,9 @@ namespace App\Model;
 
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class AnswerCollectionModel extends ArrayIterator
 {
     public function __construct(array $questions)

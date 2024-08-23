@@ -9,6 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @extends ServiceEntityRepository<Questionnaire>
  *
  * @method Questionnaire|null find($id, $lockMode = null, $lockVersion = null)

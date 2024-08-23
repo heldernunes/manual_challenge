@@ -7,6 +7,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @extends ServiceEntityRepository<QuestionAnswerRestriction>
  *
  * @method QuestionAnswerRestriction|null find($id, $lockMode = null, $lockVersion = null)

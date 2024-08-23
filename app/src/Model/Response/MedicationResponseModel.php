@@ -8,6 +8,9 @@ use App\Model\ProductModel;
 use App\Model\QuestionModel;
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class MedicationResponseModel extends ArrayIterator implements ResponseModelInterface
 {
     /**

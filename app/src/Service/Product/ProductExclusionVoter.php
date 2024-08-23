@@ -2,7 +2,6 @@
 
 namespace App\Service\Product;
 
-use App\Model\Request\MedicationReqModel;
 use App\Model\Request\QuestionnaireResponseCollectionModel;
 
 class ProductExclusionVoter

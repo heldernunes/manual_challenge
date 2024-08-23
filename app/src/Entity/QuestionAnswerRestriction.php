@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\QuestionAnswerRestrictionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[ORM\Entity(repositoryClass: QuestionAnswerRestrictionRepository::class)]
 class QuestionAnswerRestriction
 {
@@ -25,6 +28,12 @@ class QuestionAnswerRestriction
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getAnswerId(): ?int

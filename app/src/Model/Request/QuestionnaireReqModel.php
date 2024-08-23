@@ -5,6 +5,9 @@ namespace App\Model\Request;
 use App\Model\Request\RequestModelInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionnaireReqModel extends BaseReqModel
 {
     /**

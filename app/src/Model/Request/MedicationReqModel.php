@@ -4,6 +4,9 @@ namespace App\Model\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @codeCoverageIgnore
+ */
 class MedicationReqModel implements RequestModelInterface
 {
     /**

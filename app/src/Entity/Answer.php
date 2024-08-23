@@ -6,6 +6,9 @@ use App\Model\ArrayConversion;
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[ORM\Entity(repositoryClass: AnswerRepository::class)]
 class Answer
 {

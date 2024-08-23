@@ -4,6 +4,9 @@ namespace App\Model\Request;
 
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionnaireResponseCollectionModel extends ArrayIterator
 {
     /**

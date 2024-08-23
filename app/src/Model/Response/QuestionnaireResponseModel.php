@@ -6,6 +6,9 @@ use App\Model\ArrayConversion;
 use App\Model\QuestionModel;
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionnaireResponseModel extends ArrayIterator implements ResponseModelInterface
 {
     /**
@@ -100,8 +103,6 @@ class QuestionnaireResponseModel extends ArrayIterator implements ResponseModelI
     {
         $this->questions = $questions;
     }
-
-
 
     public function toArray(): array
     {

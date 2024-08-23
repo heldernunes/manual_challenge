@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\ProductDosageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[ORM\Entity(repositoryClass: ProductDosageRepository::class)]
 class ProductDosage
 {

@@ -2,10 +2,12 @@
 
 namespace App\Model;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ProductModel
 {
     use ArrayConversion;
-
 
     private int $id;
 

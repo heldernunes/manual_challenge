@@ -4,6 +4,9 @@ namespace App\Model;
 
 use ArrayIterator;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ProductCollectionModel extends ArrayIterator
 {
     /**

@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\AnswerToProductDosageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[ORM\Entity(repositoryClass: AnswerToProductDosageRepository::class)]
 class AnswerToProductDosage
 {

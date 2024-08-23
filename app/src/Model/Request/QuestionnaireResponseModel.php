@@ -4,6 +4,9 @@ namespace App\Model\Request;
 
 use App\Model\ArrayConversion;
 
+/**
+ * @codeCoverageIgnore
+ */
 class QuestionnaireResponseModel
 {
     use ArrayConversion;
@@ -30,5 +33,15 @@ class QuestionnaireResponseModel
         $this->answerId = $answerId;
 
         return $this;
+    }
+
+    public function getQuestionId(): int
+    {
+        return $this->questionId;
+    }
+
+    public function getAnswerId(): int
+    {
+        return $this->answerId;
     }
 }

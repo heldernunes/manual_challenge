@@ -1,2 +1,7 @@
 # manual_challenge
- manual challenge
+
+## Setting up and running the project
+
+```
+make up
+```
